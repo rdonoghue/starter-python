@@ -1,13 +1,10 @@
-formatter = "%s %s %s %s"
+print """
+Once upon a %s there was a %s
 
-print formatter % (1, 2, 3, 4)
-print formatter % ("one", "two", "three", "four")
-print formatter % (True, False, False, True)
-print formatter % (formatter, formatter, formatter, formatter)
-print formatter % (
-    "I had this thing.",
-    "That you could type up right.",
-    "But it didn't sing.",
-    "So I said goodnight."
-)
-chapter 8
+she loves to %s
+""" % ('hello', 'susan', 'brown')
+
+print "yay\nnewlines\nmake\neverything\tbetter\tthan\tit\twas"
+
+
+print "left off at http://learnpythonthehardway.org/book/ex9.html"
