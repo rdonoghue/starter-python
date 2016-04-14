@@ -32,6 +32,24 @@ def getdicecurve(minval,maxval,dicelist):
         print "%s\t%.1f%%" % (foo,myval)
 
 
+def filldeck():
+    '''creates a deck of cards (non manipulable)'''
+    mydeck=[];
+    suits=["clubs", "diamonds", "hearts", "spades"]
+    faces=["Jack","Queen","King","Ace"]
+    for suit in suits:
+        for num in range(2,11):
+            card="%s of %s" % (num, suit)
+            mydeck.append(card)
+        for face in faces:
+            card="%s of %s" % (face, suit)
+            mydeck.append(card)
+    return mydeck
+
+
+
+
+
 #random NUmber, inclusive
 print roll(3,6)
 
@@ -39,16 +57,20 @@ print roll(3,6)
 stuff = ["Day", "Night", "Song", "Frisbee", "Corn", "Banana", "Girl", "Boy"]
 print random.choice(stuff)
 
+deck = filldeck()
+print "You drew the", random.choice(deck)
+
+
 
 ## And now for functions!
 number_of_rolls=3
 die_size=6
 rolls=5000000
 
-myrolls=rollarray(number_of_rolls,die_size,rolls)
-print myrolls
+# myrolls=rollarray(number_of_rolls,die_size,rolls)
+# print myrolls
 
-getdicecurve(number_of_rolls,die_size,myrolls)
+# getdicecurve(number_of_rolls,die_size,myrolls)
 
 
 # print graph
