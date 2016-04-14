@@ -1,20 +1,15 @@
-def prepend(listname, prepend_value):
-    '''Reverses the list, appends the new value, then reverses it again.
-    Clunky and ungraceful, but it works until I find a really way to
-    prepend'''
+def prepend(listname, value):
+    """The Clunky version"""
     listname.reverse()
-    listname.append(prepend_value)
+    listname.append(value)
     listname.reverse()
 
+def prepend2(listname, value):
+    """The better version"""
+    listname.insert(0,value)
 
-
-
-from sys import argv
-filename = argv[1]
-# filename = "textfile.txt"
-txt = open(filename)
-
-print "Here's your file %r:" % filename
-print txt.read()
-
-txt.close()
+def pycat(filename)
+    txt = open(filename)
+    print "Here's your file %r:" % filename
+    print txt.read()
+    txt.close()
