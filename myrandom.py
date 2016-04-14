@@ -46,9 +46,32 @@ def filldeck():
             mydeck.append(card)
     return mydeck
 
+def shuffledeck(sdeck):
+    '''Randomly Reorders the Deck (or any list)'''
+    cards=len(sdeck)
+    print cards,"cards"
+    for events in range(0,cards):
+        pos=0
+        for marker in sdeck:
+            flip=random.randint(1,2)
+            if flip == 1:
+                npos=pos+1
+                if pos==cards - 1:
+                    npos=-1
+                sdeck[pos],sdeck[npos] = sdeck[npos],sdeck[pos]
+            pos += 1
+    return sdeck
+
+def dealcards(handsize):
+    thisdeck=filldeck()
+    thisdeck=shuffledeck(thisdeck)
+    thishand=[]
+    for draws in range(0,handsize):
+        thishand.append(thisdeck.pop(0))
+    return thishand
 
 
-
+smalldeck=["Foo", "bar", "baz", "red", "white", "blue"]
 
 #random NUmber, inclusive
 print roll(3,6)
@@ -59,6 +82,18 @@ print random.choice(stuff)
 
 deck = filldeck()
 print "You drew the", random.choice(deck)
+
+# newdeck=shuffledeck(deck)
+
+newdeck=shuffledeck(smalldeck)
+
+for cards in newdeck:
+    print cards
+
+
+myhand = dealcards(5)
+myhand.sort()
+print myhand
 
 
 
