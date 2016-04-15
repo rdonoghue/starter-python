@@ -87,6 +87,12 @@ print "---"
 
 classdeck=filldeck()
 
+# Draw one card
+drawncard=random.choice(classdeck)
+print "Drew the",drawncard.showcard()
+
+print "---"
+
 print classdeck[0].showcard()
 print len(classdeck)
 classdeck=shuffledeck(classdeck)
