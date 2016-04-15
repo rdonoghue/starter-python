@@ -1,9 +1,16 @@
-stuff ={}
+class Person(object):
 
-stuff["pants"]="shirt"
-stuff["shoes"]="socks"
+    def __init__(self, name):
+        ## ??
+        self.name = name
 
-print stuff
+        ## Person has-a pet of some kind
+        self.pet = None
 
-for x in stuff:
-    print "%s: %s" % (x,stuff[x])
+frank=Person("Frank")
+
+print frank
+
+frank.pet="Fido"
+
+print frank.name
