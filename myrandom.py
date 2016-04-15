@@ -47,7 +47,8 @@ def filldeck():
     return mydeck
 
 def shuffledeck(sdeck):
-    '''Randomly Reorders the Deck (or any list)'''
+    '''Randomly Reorders the Deck (or any list)
+    pretty much crap. Badly need a different procedure.'''
     cards=len(sdeck)
     print cards,"cards"
     for events in range(0,cards):
