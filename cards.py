@@ -2,50 +2,32 @@ import random
 
 class Card(object):
 	"""Playing cards as a class"""
-	def __init__(self,face,suit,value):
+	def __init__(self,face,suit,value,short_suit):
 		self.face = face
 		self.suit = suit
 		self.value = value
+		self.short_suit = short_suit
 	def showcard(self):
 		return "%s of %s" % (self.face, self.suit)
 	def shortcard(self):
-		if self.suit == "Hearts":
-			ssuit= "H"
-		elif self.suit == "Diamonds":
-			ssuit= "D"
-		elif self.suit == "Clubs":
-			ssuit= "C"
-		elif self.suit == "Spades":
-			ssuit= "S"
-		else:
-			ssuit="?"
-		return "%s%s" % (self.value, ssuit)
+		return "%s%s" % (self.value, self.short_suit)
 
 def filldeck():
 	mydeck=[]
-	suits=["clubs", "diamonds", "hearts", "spades"]
 	faces=["Jack","Queen","King","Ace"]
+	faces={"Jack":"J","Queen":"Q","King":"K","Ace":"A"}
 	numwords = [
 	"Zero", "One", "Two", "Three",
 	"Four","Five", "Six", "Seven",
 	"Eight","Nine","Ten"
 	]
-	for suit in suits:
+	suitnames={"Hearts":"H","Diamonds":"D","Clubs":"C", "Spades":"S"}
+	for suit in suitnames:
 		for num in range(2,11):
-			card = Card(num, suit,numwords[num])
+			card = Card(numwords[num], suit,num,suitnames[suit])
 			mydeck.append(card)
 		for face in faces:
-			if face == "Jack":
-				sface="J"
-			elif face == "Queen":
-				sface="Q"
-			elif face == "King":
-				sface="K"
-			elif face == "Ace":
-				sface="A"
-			else:
-				sface="?"
-			card = Card(face, suit,sface)
+			card = Card(face, suit,faces[face],suitnames[suit])
 			mydeck.append(card)
 	return mydeck
 
@@ -73,15 +55,14 @@ def dealcards(handsize):
         thishand.append(thisdeck.pop(0))
     return thishand
 
-card1=Card("Ace", "Hearts", "A")
-card2=Card("Queen", "Clubs", "Q")
+card1=Card("Ace", "Hearts", "A", "H")
+card2=Card("Queen", "Clubs", "Q", "C")
 
 deck=[card1,card2]
 
-print card1.showcard(),
-print "(%s)" % card1.shortcard()
-
-print "(%s)" % deck[1].shortcard()
+#print card1.showcard(),
+#
+#print "(%s)" % deck[1].shortcard()
 
 print "---"
 
@@ -89,13 +70,14 @@ classdeck=filldeck()
 
 # Draw one card
 drawncard=random.choice(classdeck)
-print "Drew the",drawncard.showcard()
+print "Drew the %s (%s)." % (drawncard.showcard(), drawncard.shortcard())
 
 print "---"
-
+'''
 print classdeck[0].showcard()
 print len(classdeck)
 classdeck=shuffledeck(classdeck)
 myhand=dealcards(5)
 for card in myhand:
 	print card.showcard()
+'''
