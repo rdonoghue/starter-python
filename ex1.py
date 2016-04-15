@@ -1,6 +1,9 @@
-stuff = {'name': 'Zed', 'age': 39, 'height': 6 * 12 + 2}
+stuff ={}
 
+stuff["pants"]="shirt"
+stuff["shoes"]="socks"
+
+print stuff
 
 for x in stuff:
-    print x,"|",
-    print stuff[x]
+    print "%s: %s" % (x,stuff[x])
