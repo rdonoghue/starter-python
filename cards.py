@@ -16,12 +16,12 @@ def filldeck():
 	mydeck=[]
 	faces=["Jack","Queen","King","Ace"]
 	faces={"Jack":"J","Queen":"Q","King":"K","Ace":"A"}
+	suitnames={"Hearts":"H","Diamonds":"D","Clubs":"C", "Spades":"S"}
 	numwords = [
 	"Zero", "One", "Two", "Three",
 	"Four","Five", "Six", "Seven",
 	"Eight","Nine","Ten"
 	]
-	suitnames={"Hearts":"H","Diamonds":"D","Clubs":"C", "Spades":"S"}
 	for suit in suitnames:
 		for num in range(2,11):
 			card = Card(numwords[num], suit,num,suitnames[suit])
